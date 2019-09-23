@@ -1,0 +1,36 @@
+.product-details {
+    background-color: $white;
+    padding: $spacer * 2;
+    padding-bottom: $spacer;
+
+    .image {
+        width: 680px;
+    }
+
+    .item-title {
+        .sold {
+            font-size: 14px;
+            margin-bottom: $spacer;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: $spacer *2;
+        }
+
+        .item-price {
+            font-size: 48px;
+            margin-bottom: $spacer *2;
+        }
+
+        .item-button-buy {
+            background-color: $blue;
+            border-color: $blue;
+        }
+    }
+
+    .item-description h2 {
+        font-size: 28px;
+        padding-bottom: $spacer * 2;
+    }
+}

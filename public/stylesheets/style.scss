@@ -1,0 +1,11 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '_vars';
+@import 'search_bar';
+@import 'breadcrumbs';
+@import 'product_list';
+@import 'product_details';
+
+body {
+  font-family: $font-family;
+  background: $light-gray;
+}

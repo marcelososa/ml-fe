@@ -1,0 +1,42 @@
+{{> breadcrumbs }}
+
+{{#if model.item}}
+    {{#with model.item}}
+        <div class="row justify-content-center" itemtype="http://schema.org/Product" itemscope>
+            <div class="col-10 product-details">
+                <div class="row">
+                    <div class="col-auto pr-0">
+                        <figure class="item-image">
+                            <img src="{{picture}}" class="image" alt="" />
+                            <link itemprop="image" href="{{picture}}" />
+                        </figure>
+                    </div>
+
+                    <section class="col item-title">
+                        <div class="sold">{{condition}} {{#if sold_quantity}} - {{sold_quantity}} vendidos{{/if}}</div>
+                        <h1 class="font-weight-bold">{{title}}</h1>
+                        <meta itemprop="name" content="{{title}}" />
+                        {{#with price}}
+                            <div class="item-price">
+                                {{symbol}} {{amount}}
+                            </div>
+                            <meta itemprop="price" content="{{amount}}" />
+                            <meta itemprop="priceCurrency" content="{{currency}}" />
+                        {{/with}}
+                        <form action="" method="GET">
+                            <button class="btn btn-block btn-primary item-button-buy">Comprar</button>
+                        </form>
+                    </section>
+                </div>
+
+                <div class="row">
+                    <section class="col item-description">
+                        <h2 class="mb-0 font-weight-bold">Descripcion del producto</h2>
+                        <p>{{{description}}}</p>
+                        <meta itemprop="description" content="{{description}}" />
+                    </section>
+                </div>
+            </div>
+        </div>
+    {{/with}}
+{{/if}}

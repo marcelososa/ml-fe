@@ -1,0 +1,30 @@
+.product-list {
+    .product-item {
+        background-color: $white;
+
+        .product-image .image {
+            width: 180px;
+            height: 180px;
+        }
+
+        .product-description {
+            .price {
+                font-size: 24px;
+                padding-bottom: $spacer * 2;
+            }
+
+            .location {
+                font-size: 12px;
+            }
+
+            .description {
+                font-size: 18px;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+            }
+        }
+    }
+}

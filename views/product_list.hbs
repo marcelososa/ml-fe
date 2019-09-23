@@ -1,0 +1,37 @@
+{{> breadcrumbs }}
+
+{{#if model.items}}
+    <div class="row justify-content-center product-list" itemscope itemtype="http://schema.org/ItemList">
+        <div class="col-10 product-item mb-3">
+            {{#each model.items}}
+                <div class="row border-bottom" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
+                    <div class="col-auto product-image p-3">
+                        <a href="items/{{id}}" aria-label="Lea mas acerca de {{title}}" itemprop="url">
+                            <figure class="m-0">
+                                <img itemprop="image" src="{{picture}}" class="image"
+                                    alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="col product-description pl-0 pt-3 pb-3">
+                        {{#with price}}
+                            <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/AggregateOffer">
+                                <strong itemprop="lowPrice">{{symbol}} {{amount}}</strong>
+                                <meta itemprop="priceCurrency" content="{{currency}}" />
+                                {{#if ../free_shipping}}
+                                    <img src="/images/ic_shipping.png" alt="Envio gratis!"/>
+                                {{/if}}
+                            </div>
+                        {{/with}}
+                        <div class="location float-right">{{location}}</div>
+                        <div class="description">
+                            <a href="items/{{id}}">
+                                <p itemprop="name">{{title}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

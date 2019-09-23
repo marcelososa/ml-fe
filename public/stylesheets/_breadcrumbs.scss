@@ -1,0 +1,10 @@
+.breadcrumbs {
+    .breadcrumb {
+        background-color: inherit;
+        font-size: 14px;
+    }
+    
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: ">";
+    }
+}
