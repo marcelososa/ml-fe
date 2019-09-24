@@ -17,8 +17,8 @@ router.get('/', function (req, res, next) {
 
       return builder.getCurrencyData(response.results[0].currency_id);
     })
-    .then(function(currencyResponse){
-      results.items.forEach(function(item){
+    .then(currencyResponse => {
+      results.items.forEach(item => {
         item.price.currency = currencyResponse.currency;
         item.price.decimals = currencyResponse.decimals;
         item.price.symbol = currencyResponse.symbol;
@@ -44,7 +44,7 @@ router.get('/:id', function (req, res, next) {
       return response;
     })
     .catch(error => {
-      res.send(error);
+      throw error;
     });
 
   let callToDescription = api_caller.api_call(endpoints.description)
@@ -52,7 +52,7 @@ router.get('/:id', function (req, res, next) {
       return response.plain_text;
     })
     .catch(error => {
-      res.send(error);
+      throw error;
     });
 
   let result = {};
@@ -60,21 +60,21 @@ router.get('/:id', function (req, res, next) {
   let categoryId = null;
 
   Promise.all([callToItem, callToDescription])
-    .then(function(values){
+    .then(values => {
       currencyId = values[0].currency_id;
       categoryId = values[0].category_id;
 
       result = builder.getItemDetail(values[0], values[1]);
-  
+
       return result;
     })
-    .then(function(response){
+    .then(response => {
       return Promise.all([
         builder.getCurrencyData(currencyId), 
         builder.getCategoriesFromId(categoryId)
       ]);
     })
-    .then(function(response){
+    .then(response => {
       result.item.price.currency = response[0].currency;
       result.item.price.symbol = response[0].symbol;
       result.item.price.decimals = response[0].decimals;

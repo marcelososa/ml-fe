@@ -1,9 +1,8 @@
 var api_caller = require('./api_caller');
+const ENDPOINTS = require('./config_endpoints');
 
 const getCurrencyData = function(currencyId) {
-    const endPoint = `https://api.mercadolibre.com/currencies/${currencyId}`;
-
-    return api_caller.api_call(endPoint)
+    return api_caller.api_call(ENDPOINTS.ML_API_CURRENCIES.replace('$1',currencyId))
     .then(response => {
         return {
             symbol: response.symbol, 
@@ -44,9 +43,7 @@ const getItemDetail = function(item, description) {
 };
 
 const getCategoriesFromId = function(categoryId) {
-    const endPoint = `https://api.mercadolibre.com/categories/${categoryId}`;
-
-    return api_caller.api_call(endPoint)
+    return api_caller.api_call(ENDPOINTS.ML_API_CATEGORIES.replace('$1', categoryId))
     .then(response => {
       return response.path_from_root;
     })
@@ -96,7 +93,7 @@ const getResultsList = function(data) {
         categories: getCategoriesFromQuery(data.filters),
         items: (data.results.length) ? getItems(data.results) : []
     };
-
+    
     return listProducts;
 };
 
