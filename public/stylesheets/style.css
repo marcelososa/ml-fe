@@ -7055,7 +7055,10 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 2rem;
   padding-bottom: 1rem; }
   .product-details .image {
-    width: 680px; }
+    width: 100%; }
+  @media (min-width: 992px) {
+    .product-details .image {
+      width: 680px; } }
   .product-details .item-title .sold {
     font-size: 14px;
     margin-bottom: 1rem; }

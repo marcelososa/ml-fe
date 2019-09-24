@@ -4,7 +4,13 @@
     padding-bottom: $spacer;
 
     .image {
-        width: 680px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        .image {
+            width: 680px;
+        }
     }
 
     .item-title {

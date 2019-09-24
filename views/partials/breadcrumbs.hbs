@@ -1,5 +1,5 @@
 {{#if model.categories}}
-    <nav class="row justify-content-center breadcrumbs" aria-label="breadcrumbs">
+    <nav class="row justify-content-center d-none d-md-flex breadcrumbs" aria-label="breadcrumbs">
         <ol class="col-10 breadcrumb pl-0 pt-3 pb-3 mb-0">
             {{#each model.categories}}
                 <li class="breadcrumb-item" {{#if @last}}aria-current="page"{{/if}}>
